@@ -31,7 +31,6 @@ python3.11 -m venv myvenv
 source myvenv/bin/activate
 
 pip install torch==2.3.1 torchvision==0.18.1
-#pip install torch==2.0.1 torchvision==0.15.2 
 pip install matplotlib==3.9.2
 pip install opencv-python==3.4.17.61
 pip install numpy==1.26.0
@@ -43,7 +42,7 @@ pip install scipy==1.14.1
 
 ### 4.1 H36M (training dataset and used for quantitative evaluation)
 
-Download H36M 2D poses:
+Download and decompress H36M 2D poses:
 
    - Request access to https://vision.imar.ro/human3.6m
    - Download by subject (for all of them): Poses_D2_Positions
@@ -74,14 +73,30 @@ Download H36M 2D poses:
       rm images.zip
 ```
 
-## 5. Test
+## 5. Test inference
 
 Generate a test dataset:
 ```
    ./datasetH36M_makelite.sh
 ```
 
-Train and eval with a Conditional GAN:
+Test with frozen keypoints (CGAN):
+
+```
+   ./inference.sh conf_CGAN.sh confDataset_H36M.sh 0 1
+   ./FPD.sh conf_CGAN.sh confDataset_H36M.sh 0
+```
+
+Test with frozen keypoints (DAE):
+
+```
+   ./inference.sh conf_DAE.sh confDataset_H36M.sh 0 1
+   ./FPD.sh conf_DAE.sh confDataset_H36M.sh 0
+```
+
+## 6. Train
+
+Train and eval (CGAN):
 
 ```
    ./train.sh conf_CGAN.sh confDataset_H36M.sh 0 
@@ -89,21 +104,21 @@ Train and eval with a Conditional GAN:
    ./FPD.sh conf_CGAN.sh confDataset_H36M.sh 0
 ```
 
-Train and eval with a denoising autoencoder:
+Train and eval (DAE):
 ```
    ./train.sh conf_DAE.sh confDataset_H36M.sh 0 
    ./inference.sh conf_DAE.sh confDataset_H36M.sh 0
    ./FPD.sh conf_DAE.sh confDataset_H36M.sh 0
 ```
 
-With other models can be tested just changing conf_GAN.sh for the proper script:
+With other models can be tested just changing conf_CGAN.sh for the proper script:
 
 - conf_AE.sh (autoencoder)
 - conf_VAE.sh (variational autoencoder)
 - conf_WGAN.sh (wasserstein GAN)
 - conf_CVAE.sh (conditional variational autoencoder)
 
-## 6. Monitoring training
+## 7. Monitoring training
 
 tensorboard --logdir runs
 

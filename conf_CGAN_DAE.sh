@@ -1,4 +1,4 @@
-MODEL_NAME="DGAN_DAE"
+MODEL_NAME="DCGAN_DAE"
 MODEL="models_CGAN_DAE" #models models_mirror models_simple
 NORMALIZATION="center_scale" #"center_scale", "basic", "none" 
 KEYPOINT_RESTORATION=1 #the keypoints present in the incomplete input are restored in the generated output

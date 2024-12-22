@@ -225,11 +225,12 @@ if __name__ == "__main__":
 	print('FID: %.3f' % fid)
 
 	#write to file
-	f = open(OUTPUTPATH+"/run_info.json", 'r')
-	run_info_json = json.load(f)
-	f.close()
-	run_info_json["results"].append({'FID': fid})
-	writeRunInfoFile(run_info_json, OUTPUTPATH+"/run_info.json")
+	if os.path.exists(OUTPUTPATH+"/run_info.json"):
+		f = open(OUTPUTPATH+"/run_info.json", 'r')
+		run_info_json = json.load(f)
+		f.close()
+		run_info_json["results"].append({'FID': fid})
+		writeRunInfoFile(run_info_json, OUTPUTPATH+"/run_info.json")
 
 	fid = calculate_fid(d_ref, d_crop)
 	print("H36M vs INCOMPLETE("+DATASET_CROPPED+" size="+str(d_crop_num)+")")

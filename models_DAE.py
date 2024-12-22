@@ -61,6 +61,7 @@ class Discriminator(nn.Module):
             nn.Linear(self.image_size*2, NEURONS_PER_LAYER_DISCRIMINATOR, bias=False),
             nn.BatchNorm1d(NEURONS_PER_LAYER_DISCRIMINATOR, 0.8),
             nn.LeakyReLU(0.2, inplace=True),
+            nn.Dropout(0.25),
             #nn.LeakyReLU(0.2),
             # state size. (ndf) x 32 x 32
             #nn.Conv2d(in_channels=ndf, out_channels=ndf * 2, kernel_size=4, stride=2, padding=1, bias=False),
@@ -68,6 +69,7 @@ class Discriminator(nn.Module):
             nn.BatchNorm1d(NEURONS_PER_LAYER_DISCRIMINATOR, 0.8),
             #nn.BatchNorm2d(ndf * 2),
             nn.LeakyReLU(0.2, inplace=True),
+            nn.Dropout(0.25),
             #nn.LeakyReLU(0.2),
             # state size. (ndf*2) x 16 x 16
             #nn.Conv2d(in_channels=ndf * 2, out_channels=ndf * 8, kernel_size=4, stride=2, padding=1, bias=False),
@@ -75,6 +77,7 @@ class Discriminator(nn.Module):
             nn.BatchNorm1d(NEURONS_PER_LAYER_DISCRIMINATOR, 0.8),
             #nn.BatchNorm2d(ndf * 8),
             nn.LeakyReLU(0.2, inplace=True),
+            nn.Dropout(0.25),
             #nn.LeakyReLU(0.2),
             # state size. (ndf*4) x 8 x 8
             #nn.Conv2d(in_channels=ndf * 4, out_channels=ndf * 8, kernel_size=4, stride=2, padding=1, bias=False),

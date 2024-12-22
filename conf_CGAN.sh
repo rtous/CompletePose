@@ -10,7 +10,7 @@ TRAINSPLIT=1 #0.8
 PIXELLOSS_WEIGHT=0 #It's a GAN
 
 #INFERENCE
-MODELFILE="model_epoch20_batch0.pt"
+MODELFILE="model_epoch20_batch15000.pt"
 
 
 

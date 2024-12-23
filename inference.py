@@ -86,9 +86,9 @@ def testMany(theModels, keypointsPath, imagesPath, outputPath, outputSubpath, im
             batch_filenames.append(filename)
             n += 1
         except Exception as e: 
-            print('Skipping '+filename+": "+str(e))
+            print('Cannot process pose becuse it lacks the reference bone: '+filename)
             #print(e)
-            traceback.print_exc()
+            #traceback.print_exc()
             n_errors = n_errors + 1
             #pass
             #print('Skipping '+filename)
@@ -281,9 +281,17 @@ if __name__ == "__main__":
     models.load(theModels, MODELPATH)
     	
     #CHARADE DATASET
+    print("##########################################################################################")
+    print("TESTING WITH CHARADE DATASET (REAL DATASET WITH TRUNCATIONS, POSES EXTRACTED WITH OPENPOSE")
+    print("FROM:"+DATASET_CHARADE)
+    print("##########################################################################################")  
     testMany(theModels, DATASET_CHARADE, DATASET_CHARADE_IMAGES, OUTPUTPATH, "/CHARADE", ".png", True)
 
     #TEST DATASET
+    print("##########################################################################################")
+    print("TESTING WITH A RANDOM SLICE OF H36M (1000 POSES ARIFICIALLY CROPPED")
+    print("FROM:"+DATASET_TEST)
+    print("##########################################################################################")  
     testMany(theModels, DATASET_TEST, DATASET_TEST_IMAGES, OUTPUTPATH, "/TEST", ".jpg", False)
 
     #testMany(netG, DATASET_TEST, DATASET_TEST_IMAGES, OUTPUTPATH, "/TEST", ".jpg")

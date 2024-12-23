@@ -172,11 +172,13 @@ if __name__ == "__main__":
 	    traceback.print_exc()
 	    sys.exit()	
 
+	print("DATASET_CANDIDATE=" + str(DATASET_CANDIDATE))
 	####### INITIAL WARNINGS ########
-	if not DATASET_CANDIDATE=="data/output/H36M/TEST/keypoints":
-	    print(CRED + "DATASET_CANDIDATE=" + str(DATASET_CANDIDATE) + CEND)
-	else:
-	    print(CGREEN + "DATASET_CANDIDATE=" + str(DATASET_CANDIDATE) + CEND)
+	#if not DATASET_CANDIDATE=="data/output/H36M/TEST/keypoints":
+	#    print(CRED + "DATASET_CANDIDATE=" + str(DATASET_CANDIDATE) + CEND)
+	#else:
+	#    print(CGREEN + "DATASET_CANDIDATE=" + str(DATASET_CANDIDATE) + CEND)	
+	
 	if DATASET_REFERENCE_MAX<65536:
 	    print(CRED + "DATASET_REFERENCE_MAX=" + str(DATASET_REFERENCE_MAX) + CEND)
 	else:
@@ -215,14 +217,18 @@ if __name__ == "__main__":
 
 	#testWithSlices(d_ref, d_ref_num, 1000) #To debug
 
+	print("##########################################################################################")
+	print("FID RESULTS")
+	print("##########################################################################################")  
+
 	fid = calculate_fid(d_ref[:int(d_ref_num/2)], d_ref[int(d_ref_num/2):])
-	print("HALF OF H36M vs HALF OF H36M (just to check FID ok)")
-	print('FID: %.3f' % fid)
+	print("(REFERENCE) HALF OF H36M vs HALF OF H36M (just to check FID ok)")
+	print('\tFID: %.3f' % fid)
 
 	# fid between act1 and act2
 	fid = calculate_fid(d_ref, d_can)
-	print("H36M vs COMPLETED BY INFERENCE("+DATASET_CANDIDATE+" size="+str(d_can_num)+")")
-	print('FID: %.3f' % fid)
+	print(CGREEN + "(RESULT) H36M vs COMPLETED BY INFERENCE("+DATASET_CANDIDATE+" size="+str(d_can_num)+")"+ CEND)
+	print(CGREEN +'\tFID: %.3f' % fid + CEND)
 
 	#write to file
 	if os.path.exists(OUTPUTPATH+"/run_info.json"):
@@ -233,12 +239,12 @@ if __name__ == "__main__":
 		writeRunInfoFile(run_info_json, OUTPUTPATH+"/run_info.json")
 
 	fid = calculate_fid(d_ref, d_crop)
-	print("H36M vs INCOMPLETE("+DATASET_CROPPED+" size="+str(d_crop_num)+")")
-	print('FID: %.3f' % fid)
+	print("(REFERENCE) H36M vs INCOMPLETE("+DATASET_CROPPED+" size="+str(d_crop_num)+")")
+	print('\tFID: %.3f' % fid)
 
 	fid = calculate_fid(d_ref, d_orig)
-	print("H36M vs GROUNDTRUTH("+DATASET_ORIIGNAL+" size="+str(d_orig_num)+")")
-	print('FID: %.3f' % fid)
+	print("(REFERENCE) H36M vs GROUNDTRUTH("+DATASET_ORIIGNAL+" size="+str(d_orig_num)+")")
+	print('\tFID: %.3f' % fid)
 
 
 

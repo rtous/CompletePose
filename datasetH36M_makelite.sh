@@ -14,8 +14,8 @@ else
     #DATASET_ORIGINAL="/Volumes/ElementsDat/pose/H36M/ECCV2018/ECCV18OD_no_sufix"
 fi
 
-OUTPUTPATH="dynamicData/H36Mtest_v2"
-OUTPUTPATH_ORIGINAL="dynamicData/H36Mtest_original_v2"
+OUTPUTPATH="data/TEST/H36Mtest_v2"
+OUTPUTPATH_ORIGINAL="data/TEST/H36Mtest_original_v2"
 MAX=1000
 
 python util_makeLiteH36M.py $OUTPUTPATH $OUTPUTPATH_ORIGINAL $MAX $DATASET_ORIGINAL

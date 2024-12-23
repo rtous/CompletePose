@@ -36,11 +36,11 @@ else
 	if [ $DISCARDINCOMPLETEPOSES -eq 0 ]
 	then 
 		
-		DATASET_CROPPED="dynamicData/H36Mtest"
-		DATASET_ORIGNAL="dynamicData/H36Mtest_original_noreps"
+		DATASET_CROPPED="data/TEST/H36Mtest"
+		DATASET_ORIGNAL="data/TEST/H36Mtest_original_noreps"
 	else
-		DATASET_CROPPED="dynamicData/H36Mtest_v2"
-		DATASET_ORIGNAL="dynamicData/H36Mtest_original_v2_noreps"
+		DATASET_CROPPED="data/TEST/H36Mtest_v2"
+		DATASET_ORIGNAL="data/TEST/H36Mtest_original_v2_noreps"
 	fi
 	##############
 

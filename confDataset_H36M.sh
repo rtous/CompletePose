@@ -17,16 +17,16 @@ if [ $DISCARDINCOMPLETEPOSES -eq 1 ]
 then
 	if [ $CROPPED_VARIATIONS -eq 1 ]
 	then
-    	DATASET_TEST="dynamicData/H36Mtest_v2"
+    	DATASET_TEST="data/TEST/H36Mtest_v2"
     else
-		DATASET_TEST="dynamicData/H36Mtest_original_v2_noreps"
+		DATASET_TEST="data/TEST/H36Mtest_original_v2_noreps"
 	fi
 else
 	if [ $CROPPED_VARIATIONS -eq 1 ]
 	then
-    	DATASET_TEST="dynamicData/H36Mtest"
+    	DATASET_TEST="data/TEST/H36Mtest"
     else
-		DATASET_TEST="dynamicData/H36Mtest_original_noreps"
+		DATASET_TEST="data/TEST/H36Mtest_original_noreps"
 	fi
 fi
 #DATASET_TEST="dynamicData/H36Mtest_v2" #no null keypoints

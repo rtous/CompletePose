@@ -86,6 +86,7 @@ Test with frozen keypoints (CGAN):
    ./inference.sh conf_CGAN.sh confDataset_H36M.sh 0 1
    ./FPD.sh conf_CGAN.sh confDataset_H36M.sh 0
 ```
+NOTE: Visual results can be seen in data/output/CGAN_H36M/CHARADE/images and data/output/CGAN_H36M/TEST/images.
 
 Test with frozen keypoints (DAE):
 
@@ -97,17 +98,18 @@ Test with frozen keypoints (DAE):
 ## 6. Train
 
 Train and eval (CGAN):
-
 ```
    ./train.sh conf_CGAN.sh confDataset_H36M.sh 0 
-   ./inference.sh conf_CGAN.sh confDataset_H36M.sh 0
+   ./inference.sh conf_CGAN.sh confDataset_H36M.sh 0 0
    ./FPD.sh conf_CGAN.sh confDataset_H36M.sh 0
 ```
+NOTE: Before inference the exact checkpoint need to be specified in conf_CGAN.sh.
+NOTE: Visual debug results can be seen during training in data/output/CGAN_H36M (debug_input_cropped.jpg and debug_output.jpg).
 
 Train and eval (DAE):
 ```
    ./train.sh conf_DAE.sh confDataset_H36M.sh 0 
-   ./inference.sh conf_DAE.sh confDataset_H36M.sh 0
+   ./inference.sh conf_DAE.sh confDataset_H36M.sh 0 0
    ./FPD.sh conf_DAE.sh confDataset_H36M.sh 0
 ```
 

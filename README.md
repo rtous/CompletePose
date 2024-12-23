@@ -104,6 +104,7 @@ Train and eval (CGAN):
    ./FPD.sh conf_CGAN.sh confDataset_H36M.sh 0
 ```
 NOTE: Before inference the exact checkpoint need to be specified in conf_CGAN.sh.
+
 NOTE: Visual debug results can be seen during training in data/output/CGAN_H36M (debug_input_cropped.jpg and debug_output.jpg).
 
 Train and eval (DAE):

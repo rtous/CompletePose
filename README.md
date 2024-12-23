@@ -50,13 +50,13 @@ Download and decompress H36M 2D poses:
 ```
       mkdir -p data/H36M/2D
       mv $HOME/Downloads/Poses* data/H36M/2D
-      tar -xvf data/H36M/Poses_D2_Positions_S1.tgz -C data/H36M/2D
-      tar -xvf data/H36M/Poses_D2_Positions_S5.tgz -C data/H36M/2D
-      tar -xvf data/H36M/Poses_D2_Positions_S6.tgz -C data/H36M/2D
-      tar -xvf data/H36M/Poses_D2_Positions_S7.tgz -C data/H36M/2D
-      tar -xvf data/H36M/Poses_D2_Positions_S8.tgz -C data/H36M/2D
-      tar -xvf data/H36M/Poses_D2_Positions_S9.tgz -C data/H36M/2D
-      tar -xvf data/H36M/Poses_D2_Positions_S11.tgz -C data/H36M/2D
+      tar -xvf data/H36M/2D/Poses_D2_Positions_S1.tgz -C data/H36M/2D
+      tar -xvf data/H36M/2D/Poses_D2_Positions_S5.tgz -C data/H36M/2D
+      tar -xvf data/H36M/2D/Poses_D2_Positions_S6.tgz -C data/H36M/2D
+      tar -xvf data/H36M/2D/Poses_D2_Positions_S7.tgz -C data/H36M/2D
+      tar -xvf data/H36M/2D/Poses_D2_Positions_S8.tgz -C data/H36M/2D
+      tar -xvf data/H36M/2D/Poses_D2_Positions_S9.tgz -C data/H36M/2D
+      tar -xvf data/H36M/2D/Poses_D2_Positions_S11.tgz -C data/H36M/2D
       rm data/H36M/2D/*.tgz
 ```
 
